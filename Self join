@@ -1,0 +1,8 @@
+9. Give a distinct list of the stops which may be reached from 'Craiglockhart' by taking one bus, including 'Craiglockhart' itself, offered by the LRT company. Include the company and bus no. of the relevant services.
+
+select distinct stopb.name, b.company, b.num
+from route a join route b 
+on a.num = b.num and a.company = b.company
+  join stops stopa on a.stop = stopa.id
+  join stops stopb on b.stop = stopb.id
+where stopa.name = 'Craiglockhart'
